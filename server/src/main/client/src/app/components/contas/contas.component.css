@@ -1,0 +1,19 @@
+.bgGreen{
+    background: #d6ffd6 !important;
+}
+
+.bgRed{
+    background: #ffd6d6 !important;
+}
+
+.input-group-addon{
+    border-radius: 0px !important;
+}
+
+.col-btn{
+    margin: 15px;
+}
+
+.btn-warning{
+    color: white;
+}

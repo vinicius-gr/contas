@@ -1,0 +1,112 @@
+<div class="container h-100">
+  <h4 class="font-weight-bold">Contas</h4>
+  <br>
+  <div class="reglist">
+
+    <div class="text-right">
+      <button type="submit" class="btn btn-primary" (click)="onNew()">
+        <fa-icon [icon]="faPlus"></fa-icon> Adicionar</button>
+    </div>
+
+    <br>
+
+    <div *ngIf="contas.length > 0; else msgVazio">
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>Descrição</th>
+            <th>Vencimento</th>
+            <th>Valor</th>
+            <th></th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr [class.bgGreen]="conta.tipo == '0'" [class.bgRed]="conta.tipo == '1'" *ngFor="let conta of contas ; let i = index">
+            <th scope="row">{{ i + 1 }}</th>
+            <td>{{ conta.descricao }}</td>
+            <td>{{ conta.vencimento | date: 'dd/MM/yyyy'}}</td>
+            <td>{{ conta.valor | currency:'BRL':symbol:'1.2-2' }}</td>
+            <td>
+              <button type="button" class="btn btn-info" (click)="onEdit(conta.id)">
+                <fa-icon [icon]="faEdit"></fa-icon>
+              </button>
+            </td>
+            <td>
+              <button type="button" class="btn btn-danger" (click)="onDelete(conta.id)">
+                <fa-icon [icon]="faTrashAlt"></fa-icon>
+              </button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <br>
+
+    <div class="regentry" *ngIf="showNew" [@slideDownUpAnimation]>
+      <hr>
+
+      <br>
+      <form ngNativeValidate (ngSubmit)="onSave()">
+        <div class="form-group row">
+          <label for="descricao-input" class="col-2 col-form-label">Descrição</label>
+          <div class="col-6">
+            <input required minlength="5" class="form-control" type="text" [(ngModel)]="contaModel.descricao" #descricao="ngModel" name="descricao"
+              placeholder="Digite a descrição da conta">
+          </div>
+        </div>
+
+        <div class="form-group row">
+          <label for="tipo-input" class="col-2 col-form-label">Tipo</label>
+          <div class="col-10 input-group">
+            <div class="form-check-inline">
+              <label class="form-check-label">
+                <input name="tipo-input" class="form-check-input" ng-control="tipo" type="radio" [value]="1" [(ngModel)]="contaModel.tipo">Pagamento</label>
+            </div>
+            <div class="form-check-inline">
+              <label class="form-check-label">
+                <input name="tipo-input" class="form-check-input" ng-control="tipo" type="radio" [value]="0" [(ngModel)]="contaModel.tipo">Recebimento</label>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="form-group row">
+          <label for="vencimento-input" class="col-2 col-form-label">Vencimento</label>
+          <div class="col-3 input-group">
+            <input required type="date" class="form-control" placeholder="dd/mm/aaaa" name="vencimento" [(ngModel)]="contaModel.vencimento"
+              #vencimento="ngModel">
+          </div>
+        </div>
+
+        <div class="form-group row">
+          <label for="valor-input" class="col-2 col-form-label">Valor</label>
+          <div class="col-6">
+            <input required class="form-control" type="text" currencyMask [options]="{ align: 'left', prefix: 'R$ ', thousands: '.', decimal: ',', allowNegative: false}"
+              [(ngModel)]="contaModel.valor" #name="ngModel" name="valor" placeholder="Digite o valor da conta">
+          </div>
+        </div>
+
+        <div class="form-group row">
+          <div class="col-btn">
+            <button type="submit" class="btn btn-success">
+              <fa-icon [icon]="faCheck"></fa-icon> {{submitType}}</button>
+          </div>
+          <div class="col-btn">
+            <button type="reset" class="btn btn-warning">
+              <fa-icon [icon]="faEraser"></fa-icon> Limpar</button>
+          </div>
+          <div class="col-btn">
+            <button type="submit" class="btn btn-danger" (click)="onCancel()">
+              <fa-icon [icon]="faTimes"></fa-icon> Cancelar</button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <ng-template #msgVazio> <p class="lead">Não foram encontrados registros.</p> </ng-template>
+
+
+</div>
