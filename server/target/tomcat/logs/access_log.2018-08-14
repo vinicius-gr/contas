@@ -1,3 +1,0 @@
-0:0:0:0:0:0:0:1 - - [14/Aug/2018:22:34:26 -0300] "GET /contas-v1/ng/index.html HTTP/1.1" 404 949 http-bio-8080-exec-1 44
-0:0:0:0:0:0:0:1 - - [14/Aug/2018:22:35:23 -0300] "GET /contas-v1/ng/index HTTP/1.1" 404 949 http-bio-8080-exec-3 5
-0:0:0:0:0:0:0:1 - - [14/Aug/2018:22:36:43 -0300] "GET /contas-v1/ng/index.html HTTP/1.1" 404 949 http-bio-8080-exec-6 7

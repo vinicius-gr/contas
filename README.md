@@ -16,9 +16,10 @@ Os códigos do cliente front-end estão localizados em [\server\src\main\client]
 A API foi desenvolvida em JAVA, utilizando os frameworks Spring 4.3.10 e Hibernate 5.2.11 e realiza persistência em banco MySQL.
 O cliente foi desenvolvido em Angular Versão 6.0.7 e Bootstrap 4.
 
-#### Instruções para executar a aplicação.
+#### Instruções
 
 ##### 1. Instale as dependêcias:
+- *[JDK 1.8](http://www.oracle.com/technetwork/pt/java/javase/downloads/jdk8-downloads-2133151.html) - Instalar e adicionar ao PATH
 - *[MySQL](https://dev.mysql.com/downloads/mysql/) - Instalar e configurar*
 - *[Maven](https://maven.apache.org/download.cgi) - Adicionar ao PATH*
 - *[Node e NPM](https://nodejs.org/en/download/) - Adicionar NPM ao PATH*
