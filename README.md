@@ -41,4 +41,4 @@ mvn package
 mvn tomcat7:run
 ```
 
-##### 7. Acesse a aplicação em [localhost:8080/server/ng/index.html](localhost:8080/server/ng/index.html)
+##### 7. Acesse a aplicação em [localhost:8080/server/ng/index.html](http://localhost:8080/server/ng/index.html)
